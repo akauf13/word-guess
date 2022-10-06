@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Hangman</h1>
+  <div class="attempts">
+    Attempts Remaining: <span class="remaining">6</span>
+  </div>
+  <div class="hanger">
+
+  </div>
+  <main class="container">
+    <div class="word">
+      <h3>Guess the Word!</h3>
+      <h3 class="unknown"></h3>
+    </div>
+    <div class="top-row row">
+      <div class="letter" data-letter="q">q</div>
+      <div class="letter" data-letter="w">w</div>
+      <div class="letter" data-letter="e">e</div>
+      <div class="letter" data-letter="r">r</div>
+      <div class="letter" data-letter="t">t</div>
+      <div class="letter" data-letter="y">y</div>
+      <div class="letter" data-letter="u">u</div>
+      <div class="letter" data-letter="i">i</div>
+      <div class="letter" data-letter="o">o</div>
+      <div class="letter" data-letter="p">p</div>
+      <!-- <div class="letter" data-letter="[">[</div>
+      <div class="letter" data-letter="]">]</div>
+      <div class="letter" data-letter="\">\</div> -->
+    </div>
+    <div class="mid-row row">
+      <div class="letter" data-letter="a">a</div>
+      <div class="letter" data-letter="s">s</div>
+      <div class="letter" data-letter="d">d</div>
+      <div class="letter" data-letter="f">f</div>
+      <div class="letter" data-letter="g">g</div>
+      <div class="letter" data-letter="h">h</div>
+      <div class="letter" data-letter="j">j</div>
+      <div class="letter" data-letter="k">k</div>
+      <div class="letter" data-letter="l">l</div>
+      <!-- <div class="letter" data-letter=";">;</div>
+      <div class="letter" data-letter="'">'</div> -->
+    </div>
+    <div class="bot-row row">
+      <div class="letter" data-letter="z">z</div>
+      <div class="letter" data-letter="x">x</div>
+      <div class="letter" data-letter="c">c</div>
+      <div class="letter" data-letter="v">v</div>
+      <div class="letter" data-letter="b">b</div>
+      <div class="letter" data-letter="n">n</div>
+      <div class="letter" data-letter="m">m</div>
+      <!-- <div class="letter" data-letter=",">,</div>
+      <div class="letter" data-letter=".">.</div>
+      <div class="letter" data-letter="/">/</div> -->
+    </div>
+
+    <div class="input-form">
+      <label for="input">Type!</label>
+      <input type="text" id="input" />
+    </div>
+    <button class="reset">Reset</button>
+  </main>
+</body>
+</html>

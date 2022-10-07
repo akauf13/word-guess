@@ -30,7 +30,7 @@ let words = [
   "EGREGIOUS",
   "INFORMATIVE",
   "OSTEOPOROSIS",
-  "UMBRIA",
+  "PENUMBRA",
   "ICICLE",
   "ATROPHY",
   "ABDICATE",
@@ -48,6 +48,7 @@ let words = [
 
 //define variables - answer, guessed letters, etc etc baruch hashem
 let game = true;
+let canPush = true;
 let answer = "";
 let attemptsLeft = 6;
 let guessedLetters = [];
@@ -86,22 +87,28 @@ function highlight(e) {
           newWord.splice(result, 1, curLet.innerHTML)
         );
         unknown.innerHTML = newWord.join("");
+
+        if (!unknown.innerHTML.includes("-")) {
+          alert("YOU WIN");
+          unClick(e);
+        }
       } else if (!answer.includes(e.key)) {
-        tries.innerText -= 1;
-        if (tries.innerText < 1) {
-          alert("YOU LOSE");
+        if (letters[i].style.background !== "red") {
+          letters[i].style.background = "red";
+          tries.innerText -= 1;
+          if (tries.innerText < 1) {
+            alert(`You Lose! The word was ${answer}.`);
+            unClick(e);
+          }
         }
       }
       guessedLetters.push(letters[i].dataset.letter);
       console.log(guessedLetters);
-      let canPush = true;
-      guessedLetters.forEach((letter) => {
-        if (letter === letters[i].dataset.letter) {
-          canPush = false;
-        } else if ((canPush = true)) {
-          guessedLetters.push;
-        }
-      });
+      // guessedLetters.forEach((letter) => {
+      //   if (letter === letters[i].dataset.letter) {
+      //     canPush = false;
+      //   }
+      // });
     }
   }
 }
@@ -152,8 +159,9 @@ let newWord = [];
 function createBlank() {
   game = true;
   // attemptsLeft = 6
-  tries.innerText = 6
-  // guessedLetters = []
+  tries.innerText = 6;
+  guessedLetters = [];
+
   randomizeWord();
   blankWord = "";
   for (let i = 0; i < answer.length; i++) {
@@ -164,6 +172,7 @@ function createBlank() {
   newWord = blankWord.split("");
   // console.log(randomizeWord());
 }
+createBlank();
 startBtn.addEventListener("click", createBlank);
 
 //think this is useless
@@ -190,11 +199,11 @@ startBtn.addEventListener("click", createBlank);
 //   game = true;
 //   attemptsLeft = 6;
 //   guessedLetters = [];
-  // gameStatus.innerHTML = currentTurn()
-  // document.querySelectorAll(`.cell`).forEach((cell) => (cell.innerHTML = ""))
-  // randomizeWord();
-  // mysteryWord()
-  // console.log(randomizeWord());
+// gameStatus.innerHTML = currentTurn()
+// document.querySelectorAll(`.cell`).forEach((cell) => (cell.innerHTML = ""))
+// randomizeWord();
+// mysteryWord()
+// console.log(randomizeWord());
 // }
 
 // mysteryWord()

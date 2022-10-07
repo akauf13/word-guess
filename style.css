@@ -34,6 +34,10 @@ main {
   border: 1px solid #000;
   text-transform: uppercase;
 }
+.letter:hover {
+  background-color: #149902;
+
+}
 
 .input-form {
   margin-top: 50px;

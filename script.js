@@ -63,18 +63,19 @@ function highlight(e) {
       letters[i].classList.add("active");
       //turn input to lower case (uppercase not recognized for some reason)
       answer = answer.toLowerCase();
-      console.log(answer);
+      // console.log(answer);
       //define curLet to current letter pressed
       let curLet = letters[i];
       //if random word(answer) includes key pressed return index of current letter
       if (answer.includes(e.key)) {
         let results = [];
+        letters[i].style.background = "green";
         // console.log("Here", wordSpaces);
         // returns index of current letter
         //finds all instances of current letter in the mystery word
         function finder() {
           let index = answer.indexOf(curLet.innerHTML);
-          console.log(index, "index");
+          // console.log(index, "index");
           //look through word for every index of current letter
           while (index != -1) {
             results.push(index);
@@ -88,22 +89,22 @@ function highlight(e) {
         );
         unknown.innerHTML = newWord.join("");
 
-        if (!unknown.innerHTML.includes("-")) {
-          alert("YOU WIN");
+        if (!unknown.innerHTML.includes("-") && tries.innerText > 0) {
           unClick(e);
+          alert(`You Win! The word was ${answer}.`);
         }
       } else if (!answer.includes(e.key)) {
         if (letters[i].style.background !== "red") {
           letters[i].style.background = "red";
           tries.innerText -= 1;
           if (tries.innerText < 1) {
-            alert(`You Lose! The word was ${answer}.`);
             unClick(e);
+            alert(`You Lose! The word was ${answer}.`);
           }
         }
       }
-      guessedLetters.push(letters[i].dataset.letter);
-      console.log(guessedLetters);
+      // guessedLetters.push(letters[i].dataset.letter);
+      // console.log(guessedLetters);
       // guessedLetters.forEach((letter) => {
       //   if (letter === letters[i].dataset.letter) {
       //     canPush = false;
@@ -157,11 +158,11 @@ let blankWord = "";
 let newWord = [];
 
 function createBlank() {
+  clearBoardStyles();
   game = true;
   // attemptsLeft = 6
   tries.innerText = 6;
   guessedLetters = [];
-
   randomizeWord();
   blankWord = "";
   for (let i = 0; i < answer.length; i++) {
@@ -175,6 +176,13 @@ function createBlank() {
 createBlank();
 startBtn.addEventListener("click", createBlank);
 
+function clearBoardStyles() {
+  letters.forEach((letter) => {
+    letter.style.background = "";
+    letter.classList.remove("active")
+    input.value = ""
+  });
+}
 //think this is useless
 // function selectLetter(e) {
 //   if (guessedLetters.indexOf(e) < 0) {

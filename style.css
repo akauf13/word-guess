@@ -4,6 +4,10 @@ h1 {
 .word {
   text-align: center;
 }
+.unknown {
+  font-size: 34px;
+}
+
 .hanger {
   border: 2px solid black;
 }
@@ -50,3 +54,15 @@ button {
   align-items: center;
   align-content: center;
 }
+
+/* .correct {
+  background-color: #149902;
+  cursor: not-allowed;
+  color: white;
+}
+
+.wrong {
+  background-color: red;
+  cursor: not-allowed;
+  color: white;
+} */

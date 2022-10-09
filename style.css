@@ -11,7 +11,9 @@ h1 {
 .hanger {
   /* border: 1px solid black; */
 }
-
+.attempts {
+  font-size: 18px;
+}
 main {
   justify-content: center;
   align-items: center;

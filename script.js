@@ -48,12 +48,12 @@ let words = [
   "CATACLYSMIC",
   "ABYSS",
   "QUORUM",
-  "WHIMSICAL"
+  "WHIMSICAL",
 ];
 
 //define variables - answer, guessed letters, etc etc baruch hashem
-let game = true;
-let canPush = true;
+// let game = true;
+// let canPush = true;
 let answer = "";
 let attemptsLeft = 6;
 let guessedLetters = [];
@@ -141,7 +141,7 @@ input.addEventListener("keyup", unClick);
 //randomize word
 function randomizeWord() {
   if (words.length < 1) {
-    alert("You played every word! Reload the page to try them again!")
+    alert("You played every word! Reload the page to try them again!");
     // words.push(usedWords)
     // usedWords = []
   }
@@ -166,18 +166,18 @@ let unknown = document.querySelector(".unknown");
 let startBtn = document.querySelector(".start");
 let blankWord = "";
 let newWord = [];
-
+let count = document.querySelector(".count");
 function createBlank() {
   clearBoardStyles();
-  game = true;
+  // game = true;
   // attemptsLeft = 6
   tries.innerText = 6;
   guessedLetters = [];
   randomizeWord();
-  usedWords.push(answer)
+  usedWords.push(answer);
   for (let i = 0; i < words.length; i++) {
     if (words[i] === answer) {
-      words.splice(i, 1)
+      words.splice(i, 1);
     }
   }
   blankWord = "";
@@ -187,7 +187,11 @@ function createBlank() {
   unknown.innerHTML = blankWord;
 
   newWord = blankWord.split("");
+  console.log(answer.length);
+  count.innerText = answer.length
   // console.log(randomizeWord());
+  console.log(usedWords);
+  console.log(words.length);
 }
 createBlank();
 startBtn.addEventListener("click", createBlank);
@@ -195,8 +199,8 @@ startBtn.addEventListener("click", createBlank);
 function clearBoardStyles() {
   letters.forEach((letter) => {
     letter.style.background = "";
-    letter.classList.remove("active")
-    input.value = ""
+    letter.classList.remove("active");
+    input.value = "";
   });
 }
 //think this is useless
@@ -231,3 +235,4 @@ function clearBoardStyles() {
 // }
 
 // mysteryWord()
+

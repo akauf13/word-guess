@@ -44,6 +44,11 @@ let words = [
   "INDUBITABLE",
   "ZIGGURAT",
   "OSPREY",
+  "ARITHMETIC",
+  "CATACLYSMIC",
+  "ABYSS",
+  "QUORUM",
+  "WHIMSICAL"
 ];
 
 //define variables - answer, guessed letters, etc etc baruch hashem
@@ -135,6 +140,11 @@ input.addEventListener("keyup", unClick);
 
 //randomize word
 function randomizeWord() {
+  if (words.length < 1) {
+    alert("You played every word! Reload the page to try them again!")
+    // words.push(usedWords)
+    // usedWords = []
+  }
   answer = words[Math.floor(Math.random() * words.length)];
   return answer;
 }
@@ -164,6 +174,12 @@ function createBlank() {
   tries.innerText = 6;
   guessedLetters = [];
   randomizeWord();
+  usedWords.push(answer)
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === answer) {
+      words.splice(i, 1)
+    }
+  }
   blankWord = "";
   for (let i = 0; i < answer.length; i++) {
     blankWord += "-";

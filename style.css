@@ -9,7 +9,7 @@ h1 {
 }
 
 .hanger {
-  border: 2px solid black;
+  /* border: 1px solid black; */
 }
 
 main {
@@ -19,7 +19,7 @@ main {
 }
 
 .active {
-  background-color: #149902;
+  background-color: green;
   color: #fff;
 }
 
@@ -55,14 +55,34 @@ button {
   align-content: center;
 }
 
-/* .correct {
-  background-color: #149902;
-  cursor: not-allowed;
-  color: white;
+img {
+  max-width: 400px;
+  max-height: 600px;
+  position: absolute;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  opacity: 0;
+} 
+.bar {
+  z-index: 1;
+  opacity: 1;
 }
-
-.wrong {
-  background-color: red;
-  cursor: not-allowed;
-  color: white;
-} */
+.head {
+z-index: 2;
+}
+.body {
+z-index: 3;
+}
+.larm {
+z-index: 4;
+}
+.rarm {
+z-index: 5;
+}
+.lleg {
+z-index: 6;
+}
+.rleg {
+z-index: 7;
+}

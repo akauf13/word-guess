@@ -88,3 +88,6 @@ z-index: 6;
 .rleg {
 z-index: 7;
 }
+.hidden {
+  display: none;
+}

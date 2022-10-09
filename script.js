@@ -49,6 +49,18 @@ let words = [
   "ABYSS",
   "QUORUM",
   "WHIMSICAL",
+  "YARMULKE",
+  "YOLK",
+  "AGNOSTIC",
+  "HIEROGLYPH",
+  "EUKARYOTE",
+  "ASKEW",
+  "INDIGO",
+  "QUIZZICAL",
+  "TAUTOLOGY",
+  "ANGIOPLASTY",
+  "LIQUID",
+  "AUSPICIOUS",
 ];
 
 //define variables - answer, guessed letters, etc etc baruch hashem
@@ -95,6 +107,7 @@ function highlight(e) {
         unknown.innerHTML = newWord.join("");
 
         if (!unknown.innerHTML.includes("-") && tries.innerText > 0) {
+          input.classList.add("hidden")
           unClick(e);
           alert(`You Win! The word was ${answer}.`);
         }
@@ -103,6 +116,7 @@ function highlight(e) {
           letters[i].style.background = "red";
           tries.innerText -= 1;
           if (tries.innerText < 1) {
+            input.classList.add("hidden")
             unClick(e);
             alert(`You Lose! The word was ${answer}.`);
           }
@@ -140,10 +154,11 @@ input.addEventListener("keyup", unClick);
 
 //randomize word
 function randomizeWord() {
-  if (words.length < 1) {
-    alert("You played every word! Reload the page to try them again!");
-    // words.push(usedWords)
-    // usedWords = []
+  if (words.length === 0) {
+    console.log(usedWords);
+    words = usedWords
+    console.log(words);
+    usedWords = []
   }
   answer = words[Math.floor(Math.random() * words.length)];
   return answer;
@@ -187,10 +202,10 @@ function createBlank() {
   unknown.innerHTML = blankWord;
 
   newWord = blankWord.split("");
-  console.log(answer.length);
+  // console.log(answer.length);
   count.innerText = answer.length
   // console.log(randomizeWord());
-  console.log(usedWords);
+  // console.log(usedWords);
   console.log(words.length);
 }
 createBlank();
@@ -201,6 +216,8 @@ function clearBoardStyles() {
     letter.style.background = "";
     letter.classList.remove("active");
     input.value = "";
+    input.classList.remove("hidden")
+
   });
 }
 //think this is useless

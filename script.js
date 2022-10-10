@@ -61,13 +61,11 @@ let words = [
   "ANGIOPLASTY",
   "LIQUID",
   "AUSPICIOUS",
+  "AMBIVALENT",
 ];
 
-//define variables - answer, guessed letters, etc etc baruch hashem
-// let game = true;
-// let canPush = true;
+//define variables - answer, guessed letters, etc etc
 let answer = "";
-// let attemptsLeft = 6;
 let guessedLetters = [];
 let usedWords = [];
 
@@ -75,30 +73,22 @@ let tries = document.querySelector(".remaining");
 let wins = document.querySelector(".dubs");
 let losses = document.querySelector(".wrong");
 
-let winScore = 0
-let lossScore = 0
+let winScore = 0;
+let lossScore = 0;
 
-
-//highlight key being typed
 function highlight(e) {
   for (i = 0; i < letters.length; i++) {
     if (letters[i].dataset.letter == e.key) {
       letters[i].classList.add("active");
-      //turn input to lower case (uppercase not recognized for some reason)
+      //turn input to lower case (uppercase not recognized)
       answer = answer.toLowerCase();
-      // console.log(answer);
-      //define curLet to current letter pressed
       let curLet = letters[i];
-      //if random word(answer) includes key pressed return index of current letter
       if (answer.includes(e.key)) {
         let results = [];
         letters[i].style.background = "green";
-        // console.log("Here", wordSpaces);
         // returns index of current letter
-        //finds all instances of current letter in the mystery word
         function finder() {
           let index = answer.indexOf(curLet.innerHTML);
-          // console.log(index, "index");
           //look through word for every index of current letter
           while (index != -1) {
             results.push(index);
@@ -113,9 +103,9 @@ function highlight(e) {
         unknown.innerHTML = newWord.join("");
 
         if (!unknown.innerHTML.includes("-") && tries.innerText > 0) {
-          winScore += 1
-          wins.innerText = winScore
-          input.classList.add("hidden")
+          winScore += 1;
+          wins.innerText = winScore;
+          input.classList.add("hidden");
           unClick(e);
           alert(`You Win! The word was ${answer}.`);
         }
@@ -124,9 +114,9 @@ function highlight(e) {
           letters[i].style.background = "red";
           tries.innerText -= 1;
           if (tries.innerText < 1) {
-            lossScore += 1
-            losses.innerText = lossScore
-            input.classList.add("hidden")
+            lossScore += 1;
+            losses.innerText = lossScore;
+            input.classList.add("hidden");
             unClick(e);
             alert(`You Lose! The word was ${answer}.`);
           }
@@ -137,7 +127,6 @@ function highlight(e) {
 }
 
 function unClick(e) {
-  // console.log(e.key);
   for (i = 0; i < letters.length; i++) {
     if (letters[i].dataset.letter == e.key) {
       letters[i].classList.remove("active");
@@ -148,18 +137,16 @@ function unClick(e) {
 input.addEventListener("keydown", highlight);
 input.addEventListener("keyup", unClick);
 
-//randomize word
 function randomizeWord() {
   if (words.length === 0) {
     console.log(usedWords);
-    words = usedWords
+    words = usedWords;
     console.log(words);
-    usedWords = []
+    usedWords = [];
   }
   answer = words[Math.floor(Math.random() * words.length)];
   return answer;
 }
-// console.log(randomizeWord());
 
 let unknown = document.querySelector(".unknown");
 let startBtn = document.querySelector(".start");
@@ -184,11 +171,7 @@ function createBlank() {
   unknown.innerHTML = blankWord;
 
   newWord = blankWord.split("");
-  // console.log(answer.length);
-  count.innerText = answer.length
-  // console.log(randomizeWord());
-  // console.log(usedWords);
-  console.log(words.length);
+  count.innerText = answer.length;
 }
 createBlank();
 startBtn.addEventListener("click", createBlank);
@@ -198,15 +181,6 @@ function clearBoardStyles() {
     letter.style.background = "";
     letter.classList.remove("active");
     input.value = "";
-    input.classList.remove("hidden")
-
+    input.classList.remove("hidden");
   });
 }
-// toggle letters so they appear if correct
-//toggle key so it can't be clicked twice
-//make hang stand?
-//if wrong build man / lose "life" -subtract 1 from attemptsLeft
-// add a score counter
-//make buttons for new game or restart
-
-

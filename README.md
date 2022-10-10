@@ -14,3 +14,9 @@ Incorrect guesses will be highlighted in red on the virtual keyboard.
 Press the New Game button to retrieve a new word and play again!
 
 Keep track of your wins and losses in the top right corner!
+
+
+
+# References
+
+Used Virtual Keyboard lab code to create the virtual keyboard seen onscreen.

@@ -2,6 +2,8 @@ body {
   background-image: url("https://www.pixelstalk.net/wp-content/uploads/images5/Cloud-Aesthetic-Backgrounds-Desktop.jpg");
   background-size: cover;
   color: white;
+  height: 100vh;
+  width: 100vw;
 }
 h1 {
   text-align: center;

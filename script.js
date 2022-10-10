@@ -153,6 +153,7 @@ let startBtn = document.querySelector(".start");
 let blankWord = "";
 let newWord = [];
 let count = document.querySelector(".count");
+
 function createBlank() {
   clearBoardStyles();
   tries.innerText = 6;

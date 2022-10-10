@@ -21,4 +21,12 @@ Keep track of your wins and losses in the top right corner!
 
 Used Virtual Keyboard lab code to create the virtual keyboard seen onscreen.
 
+Link:
+
 https://git.generalassemb.ly/sei-buffleheads/js-dom-virtual-keyboard
+
+Background image found on google images
+
+Link:
+
+ https://www.pixelstalk.net/wp-content/uploads/images5/Cloud-Aesthetic-Backgrounds-Desktop.jpg

@@ -67,11 +67,17 @@ let words = [
 // let game = true;
 // let canPush = true;
 let answer = "";
-let attemptsLeft = 6;
+// let attemptsLeft = 6;
 let guessedLetters = [];
 let usedWords = [];
 
 let tries = document.querySelector(".remaining");
+let wins = document.querySelector(".dubs");
+let losses = document.querySelector(".wrong");
+
+let winScore = 0
+let lossScore = 0
+
 
 //highlight key being typed
 function highlight(e) {
@@ -107,6 +113,8 @@ function highlight(e) {
         unknown.innerHTML = newWord.join("");
 
         if (!unknown.innerHTML.includes("-") && tries.innerText > 0) {
+          winScore += 1
+          wins.innerText = winScore
           input.classList.add("hidden")
           unClick(e);
           alert(`You Win! The word was ${answer}.`);
@@ -116,29 +124,17 @@ function highlight(e) {
           letters[i].style.background = "red";
           tries.innerText -= 1;
           if (tries.innerText < 1) {
+            lossScore += 1
+            losses.innerText = lossScore
             input.classList.add("hidden")
             unClick(e);
             alert(`You Lose! The word was ${answer}.`);
           }
         }
       }
-      // guessedLetters.push(letters[i].dataset.letter);
-      // console.log(guessedLetters);
-      // guessedLetters.forEach((letter) => {
-      //   if (letter === letters[i].dataset.letter) {
-      //     canPush = false;
-      //   }
-      // });
     }
   }
 }
-
-// letters.forEach(letter => letter.addEventListener("keydown", (e) => {
-//   console.log(e.key);
-// if (answer.includes(letter.innerHTML)) {
-//   console.log("here");
-// }
-// }))
 
 function unClick(e) {
   // console.log(e.key);
@@ -165,18 +161,6 @@ function randomizeWord() {
 }
 // console.log(randomizeWord());
 
-//select randomizeWord() and leave spaces
-//^^splice randomized word? and unshift? into usedWords array and pull word from usedWords[0]
-// usedWords.unshift(answer)
-// wordLength = usedWords[0].length
-// console.log(usedWords[0]);
-// console.log(wordLength);
-//function for _ depicting letters amount
-// let unknown = document.querySelector(".unknown");
-// function mysteryWord() {
-//   wordSpaces = answer.split("").map(letter => (guessedLetters.indexOf(letter) >= 0 ? letter : " _ ")).join("")
-//   document.querySelector(".unknown").innerHTML = wordSpaces;
-// }
 let unknown = document.querySelector(".unknown");
 let startBtn = document.querySelector(".start");
 let blankWord = "";
@@ -184,8 +168,6 @@ let newWord = [];
 let count = document.querySelector(".count");
 function createBlank() {
   clearBoardStyles();
-  // game = true;
-  // attemptsLeft = 6
   tries.innerText = 6;
   guessedLetters = [];
   randomizeWord();
@@ -220,17 +202,6 @@ function clearBoardStyles() {
 
   });
 }
-//think this is useless
-// function selectLetter(e) {
-//   if (guessedLetters.indexOf(e) < 0) {
-//     attemptsLeft -= 1
-//     e.target.remove
-//   }
-//   else {
-
-//   }
-// }
-
 // toggle letters so they appear if correct
 //toggle key so it can't be clicked twice
 //make hang stand?
@@ -238,18 +209,4 @@ function clearBoardStyles() {
 // add a score counter
 //make buttons for new game or restart
 
-// document.querySelector(".reset").addEventListener("click", resetClick);
-
-// function resetClick() {
-//   game = true;
-//   attemptsLeft = 6;
-//   guessedLetters = [];
-// gameStatus.innerHTML = currentTurn()
-// document.querySelectorAll(`.cell`).forEach((cell) => (cell.innerHTML = ""))
-// randomizeWord();
-// mysteryWord()
-// console.log(randomizeWord());
-// }
-
-// mysteryWord()
 

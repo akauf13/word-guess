@@ -1,3 +1,9 @@
+body {
+  /* background-image: url("https://d1aueex22ha5si.cloudfront.net/Conference/1500/BackGround/3D-Brain-Rotation-1643705324864.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white; */
+}
 h1 {
   text-align: center;
 }
@@ -66,28 +72,11 @@ img {
   align-items: center;
   opacity: 0;
 } 
-.bar {
-  z-index: 1;
-  opacity: 1;
-}
-.head {
-z-index: 2;
-}
-.body {
-z-index: 3;
-}
-.larm {
-z-index: 4;
-}
-.rarm {
-z-index: 5;
-}
-.lleg {
-z-index: 6;
-}
-.rleg {
-z-index: 7;
-}
+
 .hidden {
   display: none;
+}
+
+.scores {
+justify-content: right;
 }

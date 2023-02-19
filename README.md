@@ -1,5 +1,11 @@
 # word-guess
 
+## Deployed Link
+
+https://jovial-crumble-1db7ec.netlify.app/
+
+
+
 ## Hangman without the hanging
 
 Guess what letters are in the mystery word by typing into the text box.
